@@ -41,7 +41,7 @@ const EnergyHouse = () => {
         if (window.ethereum) {
             balanceOf()
         }
-    })
+    }, [])
 
     const balanceOf = async () => {
         if (window.ethereum) {

@@ -56,7 +56,7 @@ const Prosumer = () => {
             maticPrice()
             stakeBalance()
         }
-    }, [1])
+    }, [])
 
     const usdPrice = async () => {
         if (window.ethereum) {

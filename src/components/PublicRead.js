@@ -28,7 +28,7 @@ const PublicRead = ({ contract, isConnected }) => {
             showContractOwner()
             prosumerCounter()
         }
-    })
+    }, [])
 
     const showContractOwner = async () => {
         if (typeof window.ethereum !== "undefined") {
