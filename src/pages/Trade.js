@@ -18,7 +18,8 @@ import {
 
 import EnergyTrade from "../artifacts/contracts/EnergyTrade.sol/EnergyTrade.json" //Import ABI Code to interact with smart contract
 
-const Energy_Trade_ContractAddress = "0x8B823D180e921BC95C576384EcD408D5e44f3dC7"
+// const Energy_Trade_ContractAddress = "0x8B823D180e921BC95C576384EcD408D5e44f3dC7"
+const Energy_Trade_ContractAddress = "0x21fF406C756247DA9D08599E762F75e7Af29A966"
 
 const provider = new ethers.providers.Web3Provider(window.ethereum)
 const signer = provider.getSigner()
