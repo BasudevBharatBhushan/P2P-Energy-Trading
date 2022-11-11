@@ -169,7 +169,7 @@ const EnergyHouse = () => {
                                 <Button positive style={{ marginLeft: "10px" }} onClick={mint}>
                                     Mint
                                 </Button>
-<p>{mintMessage}</p>
+                                <p>{mintMessage}</p>
                             </Form.Field>
                             <Form.Field inline>
                                 <label>Burn Energy </label>
@@ -182,7 +182,7 @@ const EnergyHouse = () => {
                                 <Button color="red" style={{ marginLeft: "10px" }} onClick={burn}>
                                     Burn
                                 </Button>
- <p>{burnMessage}</p>
+                                <p>{burnMessage}</p>
                             </Form.Field>
                         </Form>
                     </Grid.Column>
