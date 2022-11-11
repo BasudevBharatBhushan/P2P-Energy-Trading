@@ -36,6 +36,8 @@ const EnergyHouse = () => {
     const [energyInputPrice, setEnergyInputPrice] = useState(0)
     const [MaticPrice, setMaticPrice] = useState(0)
     const [USDPrice, setUSDPrice] = useState(0)
+    const [mintMessage, setMintMessage] = useState("")
+    const [burnMessage, setBurnMessage] = useState("")
 
     useEffect(() => {
         if (window.ethereum) {
@@ -74,13 +76,16 @@ const EnergyHouse = () => {
     const mint = async () => {
         if (window.ethereum) {
             try {
+                setMintMessage("Minting in progress...Please Wait")
                 const Mint = await WriteContracts.produceEnergy(BigNumber.from(energyValue))
                 await Mint.wait(1)
                 console.log(Mint)
                 setEnergyValue(0)
+                setMintMessage("Minting Successfull")
                 refresh()
             } catch (error) {
                 console.log(error)
+                setMintMessage("Minting Failed")
             }
         }
     }
@@ -88,13 +93,16 @@ const EnergyHouse = () => {
     const burn = async () => {
         if (window.ethereum) {
             try {
+                setBurnMessage("Burning in progress...Please Wait")
                 const Burn = await WriteContracts.burnEnergy(BigNumber.from(energyValue))
                 await Burn.wait(1)
                 console.log(Burn)
                 setEnergyValue(0)
+                setBurnMessage("Burning Successfull")
                 refresh()
             } catch (error) {
                 console.log(error)
+                setBurnMessage("Burning Failed")
             }
         }
     }
@@ -161,6 +169,7 @@ const EnergyHouse = () => {
                                 <Button positive style={{ marginLeft: "10px" }} onClick={mint}>
                                     Mint
                                 </Button>
+<p>{mintMessage}</p>
                             </Form.Field>
                             <Form.Field inline>
                                 <label>Burn Energy </label>
@@ -173,6 +182,7 @@ const EnergyHouse = () => {
                                 <Button color="red" style={{ marginLeft: "10px" }} onClick={burn}>
                                     Burn
                                 </Button>
+ <p>{burnMessage}</p>
                             </Form.Field>
                         </Form>
                     </Grid.Column>
